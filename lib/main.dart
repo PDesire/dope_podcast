@@ -50,6 +50,17 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff0b665c),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+            icon: new Icon(Icons.menu),
+            onPressed: () {
+
+            }
+        ),
+      ),
       body: new HomePage()
     );
   }
