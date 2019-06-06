@@ -1,6 +1,6 @@
-import 'package:dope_podcast/pages/details.dart';
-import 'package:dope_podcast/pages/home.dart';
 import 'package:flutter/material.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:dope_podcast/pages/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,15 +10,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dope Podcast',
-      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         accentColor: Color(0xffff8b62),
         accentIconTheme: IconThemeData(
           color: Colors.white
-        ),
+        )
       ),
-      home: DetailsPage(),
+      home: MyHomePage(),
     );
   }
 }

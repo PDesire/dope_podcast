@@ -1,5 +1,4 @@
 import 'package:dope_podcast/components/bottom_action_button.dart';
-import 'package:dope_podcast/constants/assets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,9 +17,12 @@ class DetailsPage extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                Assets.beach,
-                fit: BoxFit.cover,
+              background: Hero(
+                tag: title + "_hero",
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
@@ -103,7 +105,7 @@ class DetailsPage extends StatelessWidget {
       children: <Widget>[
         Flexible(
           child: Text(
-            'Minimalism Lifestyle',
+            title,
             style: Theme.of(context).textTheme.display1.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,

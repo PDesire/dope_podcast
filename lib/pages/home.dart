@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:dope_podcast/components/button_titled.dart';
+import 'package:dope_podcast/components/avatar_titled.dart';
 import 'package:dope_podcast/components/special_listtile.dart';
 import 'package:dope_podcast/constants/assets.dart';
+import 'package:dope_podcast/pages/details.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,84 +25,130 @@ class _HomePageState extends State<HomePage> {
           parallaxEnabled: true,
           parallaxOffset: .5,
           minHeight: MediaQuery.of(context).size.height * 0.35,
+          maxHeight: MediaQuery.of(context).size.height * 0.90,
           borderRadius: radius,
-          panel: new Center(
-            child: new Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                new SizedBox(
-                  height: 30,
-                ),
-                new Text(
-                    "Handpicked",
-                    style: new TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.w500,
-                      fontFamily: 'OpenSansBold'
-                    ),
-                ),
-                new SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  width: 40,
-                  height: 5,
-                  decoration: BoxDecoration(
-                      color: Color(0xfff0ad86),
-                      borderRadius: BorderRadius.all(Radius.circular(12.0))
-                  ),
-                ),
-                new SizedBox(
-                  height: 40,
-                ),
-                new Column(
+          panel: ListView(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            children: <Widget>[
+              new Center(
+                child: new Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    SpecialListTile(
-                        title: "Beach",
-                        subtitle: "Dope Beach",
-                        asset: Assets.beach
+                    new SizedBox(
+                      height: 30,
                     ),
-                    SpecialListTile(
-                        title: "Canyon",
-                        subtitle: "Dope canyon",
-                        asset: Assets.canyon
+                    new Text(
+                        "Handpicked",
+                        style: new TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'OpenSansBold'
+                        ),
                     ),
-                    SpecialListTile(
-                        title: "Monkey",
-                        subtitle: "Dope monkey",
-                        asset: Assets.monkey
-                    )
+                    new SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      width: 40,
+                      height: 5,
+                      decoration: BoxDecoration(
+                          color: Color(0xfff0ad86),
+                          borderRadius: BorderRadius.all(Radius.circular(12.0))
+                      ),
+                    ),
+                    new SizedBox(
+                      height: 40,
+                    ),
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SpecialListTile(
+                            title: "Beach",
+                            subtitle: "Dope Beach",
+                            asset: Assets.beach,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(
+                                title: "Beach",
+                                description: "Super dope description",
+                                image: Assets.beach,
+                              )));
+                            },
+                        ),
+                        SpecialListTile(
+                            title: "Canyon",
+                            subtitle: "Dope canyon",
+                            asset: Assets.canyon,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(
+                                title: "Canyon",
+                                description: "Super dope description",
+                                image: Assets.canyon,
+                              )));
+                            },
+                        ),
+                        SpecialListTile(
+                            title: "Huts",
+                            subtitle: "Dope huts",
+                            asset: Assets.huts,
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => DetailsPage(
+                                title: "Huts",
+                                description: "Super dope description",
+                                image: Assets.huts,
+                              )));
+                            },
+                        )
+                      ],
+                    ),
+                    new SizedBox(
+                      height: 40,
+                    ),
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.only(left: 30),
+                          child: new Text(
+                              "Top Authors",
+                              style: new TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: 'OpenSansBold'
+                              ),
+                          ),
+                        ),
+                        new SizedBox(
+                          height: 10,
+                        ),
+                        new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            AvatarTitled(
+                                asset: Assets.monkey,
+                                title: "Monkey 1"
+                            ),
+                            AvatarTitled(
+                                asset: Assets.monkey,
+                                title: "Monkey 2"
+                            ),
+                            AvatarTitled(
+                                asset: Assets.monkey,
+                                title: "Monkey 3"
+                            )
+                          ],
+                        )
+                      ],
+                    ),
                   ],
                 ),
-                new SizedBox(
-                  height: 40,
-                ),
-                new Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    SpecialListTile(
-                        title: "Beach",
-                        subtitle: "Dope Beach",
-                        asset: Assets.beach
-                    ),
-                    SpecialListTile(
-                        title: "Canyon",
-                        subtitle: "Dope canyon",
-                        asset: Assets.canyon
-                    ),
-                    SpecialListTile(
-                        title: "Monkey",
-                        subtitle: "Dope monkey",
-                        asset: Assets.monkey
-                    )
-                  ],
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           body: new Center(
             child: new Column(

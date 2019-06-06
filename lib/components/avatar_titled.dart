@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ButtonTitled extends StatelessWidget {
-  ButtonTitled({@required this.icon, @required this.title});
+class AvatarTitled extends StatelessWidget {
+  AvatarTitled({@required this.asset, @required this.title});
 
-  final IconData icon;
+  final String asset;
   final String title;
 
   @override
@@ -22,11 +22,14 @@ class ButtonTitled extends StatelessWidget {
               child: Card(
                 semanticContainer: true,
                 clipBehavior: Clip.antiAliasWithSaveLayer,
-                child: Icon(icon),
+                child: Image.asset(
+                  asset,
+                  fit: BoxFit.fill,
+                ),
                 shape: StadiumBorder(
-                    side: BorderSide(
-                        color: Colors.transparent
-                    )
+                  side: BorderSide(
+                    color: Colors.transparent
+                  )
                 ),
                 elevation: 5,
                 margin: EdgeInsets.all(10),
@@ -38,7 +41,7 @@ class ButtonTitled extends StatelessWidget {
             child: new Text(
                 title,
                 style: new TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontFamily: 'OpenSans'
                 ),
             ),
