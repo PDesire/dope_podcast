@@ -74,7 +74,31 @@ class _HomePageState extends State<HomePage> {
                         asset: Assets.monkey
                     )
                   ],
-                )
+                ),
+                new SizedBox(
+                  height: 40,
+                ),
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SpecialListTile(
+                        title: "Beach",
+                        subtitle: "Dope Beach",
+                        asset: Assets.beach
+                    ),
+                    SpecialListTile(
+                        title: "Canyon",
+                        subtitle: "Dope canyon",
+                        asset: Assets.canyon
+                    ),
+                    SpecialListTile(
+                        title: "Monkey",
+                        subtitle: "Dope monkey",
+                        asset: Assets.monkey
+                    )
+                  ],
+                ),
               ],
             ),
           ),
