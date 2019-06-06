@@ -31,7 +31,8 @@ class ButtonTitled extends StatelessWidget {
             child: new Text(
                 title,
                 style: new TextStyle(
-                  color: Colors.white
+                  color: Colors.white,
+                  fontFamily: 'OpenSans'
                 ),
             ),
           )

@@ -21,6 +21,15 @@ flutter:
   assets:
   - assets/images/
 
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+
+    - family: OpenSansBold
+      fonts:
+         - asset: assets/fonts/OpenSans-Bold.ttf
+
   # fonts:
 #  - family: Schyler
 #     fonts:

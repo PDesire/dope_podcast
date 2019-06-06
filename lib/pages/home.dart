@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:dope_podcast/components/button_titled.dart';
+import 'package:dope_podcast/components/special_listtile.dart';
+import 'package:dope_podcast/constants/assets.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,8 +36,44 @@ class _HomePageState extends State<HomePage> {
                     "Handpicked",
                     style: new TextStyle(
                       fontSize: 30,
-                      fontWeight: FontWeight.w500
+                      fontWeight: FontWeight.w500,
+                      fontFamily: 'OpenSansBold'
                     ),
+                ),
+                new SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 40,
+                  height: 5,
+                  decoration: BoxDecoration(
+                      color: Color(0xfff0ad86),
+                      borderRadius: BorderRadius.all(Radius.circular(12.0))
+                  ),
+                ),
+                new SizedBox(
+                  height: 40,
+                ),
+                new Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SpecialListTile(
+                        title: "Beach",
+                        subtitle: "Dope Beach",
+                        asset: Assets.beach
+                    ),
+                    SpecialListTile(
+                        title: "Canyon",
+                        subtitle: "Dope canyon",
+                        asset: Assets.canyon
+                    ),
+                    SpecialListTile(
+                        title: "Monkey",
+                        subtitle: "Dope monkey",
+                        asset: Assets.monkey
+                    )
+                  ],
                 )
               ],
             ),
@@ -50,7 +88,8 @@ class _HomePageState extends State<HomePage> {
                     "Browse",
                     style: new TextStyle(
                       fontSize: 50,
-                      color: Colors.white
+                      color: Colors.white,
+                      fontFamily: 'OpenSansBold'
                     ),
                 ),
                 new SizedBox(
@@ -60,11 +99,12 @@ class _HomePageState extends State<HomePage> {
                     "Find podcast that suit to your interest",
                     style: new TextStyle(
                         fontSize: 20,
-                        color: Colors.white
+                        color: Colors.white,
+                        fontFamily: 'OpenSans'
                     ),
                 ),
                 new SizedBox(
-                    height: 75
+                    height: 45
                 ),
                 Container(
                   height: 75,
@@ -83,7 +123,8 @@ class _HomePageState extends State<HomePage> {
                           child: new Text(
                               "Type keyboard",
                               style: new TextStyle(
-                                color: Colors.white
+                                color: Colors.white,
+                                fontFamily: 'OpenSans'
                               ),
                           )
                       ),
